@@ -1,0 +1,8 @@
+**/*.pyc
+**/__pycache__/
+.venv/
+**/tests/
+.ruff_cache/
+.git/
+.mypy_cache/
+node_modules/

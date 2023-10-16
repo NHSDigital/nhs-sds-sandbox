@@ -1,0 +1,35 @@
+name: pull-request
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    if: github.repository == 'NHSDigital/nhs-sds-sandbox'
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: common build setup
+        uses: ./.github/actions/build-common
+
+      - name: get next version
+        run: |
+          version="v$(poetry version patch | rev | cut -d' ' -f1 | rev)"
+          echo "RELEASE_VERSION=$version" >> $GITHUB_ENV
+          git tag $version
+
+      - name: create release
+        id: create_release
+        uses: actions/create-release@v1
+        continue-on-error: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.RELEASE_VERSION }}
+          release_name: ${{ env.RELEASE_VERSION }}

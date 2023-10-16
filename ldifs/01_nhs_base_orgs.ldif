@@ -1,0 +1,35 @@
+dn: uniqueidentifier=T1431,ou=Organisations,o=nhs
+objectClass: nhsOrg
+o: THE IC HQ TREVELYAN SQUARE
+uniqueidentifier: T1431
+postalAddress: 1 TREVELYAN SQUARE
+l: LEEDS
+postalCode: LS1 6AE
+nhsIDcode: T1431
+nhsCountry: ENGLAND
+nhsOrgTypeCode: RO191
+nhsOrgType: SPECIAL HEALTH AUTHORITY SITE
+
+dn: uniqueidentifier=X26,ou=Organisations,o=nhs
+objectClass: nhsOrg
+o: NHS ENGLAND - X26
+uniqueidentifier: X26
+postalAddress: THE LEEDS GOVERNMENT HUB, 7-8 WELLINGTON PLACE:
+l: LEEDS
+postalCode: LS1 4AP
+nhsIDcode: X26
+nhsCountry: ENGLAND
+nhsOrgTypeCode: RO116
+nhsOrgType: EXECUTIVE AGENCY
+
+dn: uniqueidentifier=X36,ou=Organisations,o=nhs
+objectClass: nhsOrg
+o: UK HEALTH SECURITY AGENCY
+uniqueidentifier: X36
+postalAddress: 10 SOUTH COLONNADE
+l: LONDON
+postalCode: E14 5EA
+nhsIDcode: X36
+nhsCountry: ENGLAND
+nhsOrgTypeCode: RO116
+nhsOrgType: EXECUTIVE AGENCY

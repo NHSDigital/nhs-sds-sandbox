@@ -1,0 +1,14 @@
+dn: o=nhs
+objectClass: organization
+description: NHS
+o: nhs
+
+dn: ou=Organisations,o=nhs
+objectClass: organizationalUnit
+description: All Organisations
+ou: Organisations
+
+dn: ou=People,o=nhs
+objectClass: organizationalUnit
+description: People
+ou: People

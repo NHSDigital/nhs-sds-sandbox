@@ -1,0 +1,65 @@
+name: "Pull Request"
+on:
+  pull_request:
+    branches:
+      - develop
+
+env:
+  ACCOUNT_ID: "${{ secrets.DEV_ACCOUNT_ID }}"
+
+jobs:
+
+  ci:
+    runs-on: ubuntu-latest
+    if: github.repository == 'NHSDigital/nhs-sds-sandbox'
+    timeout-minutes: 20
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: common build setup
+        uses: ./.github/actions/build-common
+
+      - name: ci install
+        uses: ./.github/actions/install-ci
+
+      - name: black
+        shell: bash
+        run: make black-check
+
+      - name: ruff
+        run: make ruff-ci
+
+      - name: mypy
+        run: make mypy
+
+      - name: hadolint
+        uses: hadolint/hadolint-action@master
+        with:
+          dockerfile: "Dockerfile"
+          recursive: true
+          config: ./docker/hadolint.yml
+
+      - name: shellcheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          ignore_paths: .venv build
+          ignore_names: git-secrets
+        env:
+          SHELLCHECK_OPTS: -f gcc -e SC1090,SC1091
+
+      - name: docker build
+        uses: make docker-build
+
+      - name: start docker containers
+        run: make down up
+
+      - name: run tests
+        run: make test
+
+      - name: stop docker containers
+        if: success() || failure()
+        run: make down

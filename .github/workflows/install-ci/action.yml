@@ -1,0 +1,22 @@
+name: "install ci"
+description: "ci install"
+
+runs:
+  using: "composite"
+  steps:
+
+    - name: cache virtualenv
+      uses: actions/cache@v3
+      with:
+        path: |
+          .venv
+        key: ${{ runner.os }}-poetry-v2-${{ hashFiles('./poetry.lock') }}
+
+    - name: extra installs
+      shell: bash
+      run: |
+        sudo apt-get install -yq libsasl2-dev libldap2-dev libssl-dev
+
+    - name: install dependencies
+      shell: bash
+      run: make install-ci

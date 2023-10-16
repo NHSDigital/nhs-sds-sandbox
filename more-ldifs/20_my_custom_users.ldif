@@ -1,0 +1,29 @@
+dn: uid=1111,ou=People,o=nhs
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: nhsPerson
+cn: Testy McTest-Face
+personalTitle: Sir
+givenName: Testy
+sn: McTest-Face
+description: Human
+mail: testy.mctest-face@example.com
+ou: People
+uid: 1111
+nhsPersonStatus: 0
+
+dn: uid=2222,ou=People,o=nhs
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: nhsPerson
+cn: Org Admin
+personalTitle: Mr
+givenName: Org
+sn: Admin
+description: Human
+mail: org.admin@example.com
+ou: People
+uid: 2222
+nhsPersonStatus: 1

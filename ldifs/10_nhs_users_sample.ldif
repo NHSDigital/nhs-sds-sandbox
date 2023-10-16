@@ -1,0 +1,43 @@
+dn: uid=1234,ou=People,o=nhs
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: nhsPerson
+cn: Inactive User
+personalTitle: Dame
+givenName: Inactive
+sn: User
+description: Human
+mail: inactive.user@example.com
+ou: People
+uid: 1234
+nhsPersonStatus: 0
+
+dn: uid=4567,ou=People,o=nhs
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: nhsPerson
+cn: Robinson Crusoe
+personalTitle: Mr
+givenName: Robinson
+sn: Crusoe
+description: Human
+mail: robinson.crusoe@example.com
+ou: People
+uid: 4567
+nhsPersonStatus: 1
+
+dn: uid=6789,ou=People,o=nhs
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: nhsPerson
+cn: Jane Doe
+givenName: Jane
+sn: Doe
+description: Human
+mail: jane.doe@example.com
+ou: People
+uid: 6789
+nhsPersonStatus: 1
