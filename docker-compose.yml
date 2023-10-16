@@ -15,6 +15,12 @@ services:
       LDAP_LDAPS_PORT_NUMBER: 11636
       LDAP_ENABLE_TLS: no
       BITNAMI_DEBUG: true
+
+    healthcheck:
+      test: ldapsearch -H ldap://localhost:11389 -x -b "uid=1111,ou=People,o=nhs" -s base uid || exit 1
+      interval: 10s
+      timeout: 10s
+
     volumes:
       # mount individual .ldif files to add data (bitnami won't find recursively, so you can't mount a subfolder)
       - ./more-ldifs/20_my_custom_users.ldif:/ldifs/20_my_custom_users.ldif:ro

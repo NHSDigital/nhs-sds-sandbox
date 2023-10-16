@@ -1,11 +1,5 @@
 name: "common-build-steps"
 description: "regular build steps"
-inputs:
-   setup-aws-credentials:
-     required: false
-     default: "false"
-     description: "whether to configure aws credentials"
-
 
 runs:
   using: "composite"
@@ -51,6 +45,7 @@ runs:
           virtualenvs-in-project: true
 
       - name: add poetry plugins
+        shell: bash
         run: |
           poetry self add "poetry-dynamic-versioning[plugin]"
 

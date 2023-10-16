@@ -47,13 +47,14 @@ down:
 
 up:
 	$(BUILDKIT_ARGS) docker compose  up -d --remove-orphans --build
+	scripts/wait-for-container.sh sds_ldap 60
 
 
 install:
 	poetry install --sync
 
 install-ci:
-	poetry install --without local --sync
+	poetry install --sync
 
 black-check:
 	poetry run black . --check
