@@ -72,7 +72,7 @@ ruff-check:
 	poetry run ruff .
 
 ruff-ci:
-	poetry run ruff --format=github .
+	poetry run ruff --output-format=github .
 
 shellcheck:
 	@# Only swallow checking errors (rc=1), not fatal problems (rc=2)
