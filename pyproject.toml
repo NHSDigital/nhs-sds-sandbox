@@ -15,7 +15,7 @@ python = ">=3.11,<4.0"
 # ci / testing dependencies
 black = "^23.7.0"
 ruff = "^0.0.292"
-mypy = "^1.4.0"
+mypy = "^1.7.1"
 pytest = "^7.3.1"
 pytest-asyncio = "^0.21.1"
 bonsai = "^1.5.1"
