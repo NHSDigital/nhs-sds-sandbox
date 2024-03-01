@@ -16,7 +16,7 @@ python = ">=3.11,<4.0"
 black = "^23.7.0"
 ruff = "^0.1.6"
 mypy = "^1.4.0"
-pytest = "^7.3.1"
+pytest = "^8.0.2"
 pytest-asyncio = "^0.21.1"
 bonsai = "^1.5.1"
 
